@@ -1,0 +1,11 @@
+{
+  "domain": "manchesterwebdesign.uk",
+  "org": "Manchester-Web-Design",
+  "brand": "Manchester Web Design",
+  "slug": "migration-redirect-checker",
+  "title": "Migration Redirect Checker",
+  "profile": "Website rebuilds, migrations and tools for reviewing redirect maps. Operated by JW Digital Services Ltd.",
+  "accent": "#283e80",
+  "tint": "#eaeefa",
+  "summary": "Check a website migration map for missing destinations, redirect loops and avoidable chains."
+}

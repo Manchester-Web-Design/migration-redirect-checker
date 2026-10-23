@@ -1,0 +1,82 @@
+{
+  "title": "Migration map review",
+  "summary": "8 decisions reviewed. Live reachability is unchecked. Query changes require human review.",
+  "rows": [
+    {
+      "old_url": "https://example.com/services-old",
+      "new_url": "https://example.com/capabilities",
+      "status": 301,
+      "reason": "Reviewed replacement"
+    },
+    {
+      "old_url": "https://example.com/team",
+      "new_url": "https://example.com/people-old",
+      "status": 301,
+      "reason": "Chain fixture"
+    },
+    {
+      "old_url": "https://example.com/people-old",
+      "new_url": "https://example.com/people",
+      "status": 301,
+      "reason": "Second hop"
+    },
+    {
+      "old_url": "https://example.com/about",
+      "new_url": "https://example.com/about-old",
+      "status": 301,
+      "reason": "Loop fixture"
+    },
+    {
+      "old_url": "https://example.com/about-old",
+      "new_url": "https://example.com/about",
+      "status": 301,
+      "reason": "Loop fixture"
+    },
+    {
+      "old_url": "https://example.com/downloads",
+      "new_url": "https://example.com/documents",
+      "status": 301,
+      "reason": "Supplied missing destination"
+    },
+    {
+      "old_url": "https://example.com/search?q=parts",
+      "new_url": "https://example.com/search?q=parts",
+      "status": 301,
+      "reason": "Self redirect fixture to review"
+    },
+    {
+      "old_url": "https://example.com/retired",
+      "new_url": null,
+      "status": 410,
+      "reason": "Explicit retirement decision"
+    }
+  ],
+  "issues": [
+    {
+      "code": "chain",
+      "message": "2 redirect hops; prefer a direct reviewed destination",
+      "source": "https://example.com/team"
+    },
+    {
+      "code": "loop",
+      "message": "Redirect loop detected",
+      "source": "https://example.com/about"
+    },
+    {
+      "code": "loop",
+      "message": "Redirect loop detected",
+      "source": "https://example.com/about-old"
+    },
+    {
+      "code": "missing",
+      "message": "Supplied status export marks the destination as missing",
+      "source": "https://example.com/downloads"
+    },
+    {
+      "code": "loop",
+      "message": "Redirect loop detected",
+      "source": "https://example.com/search?q=parts"
+    }
+  ],
+  "markdown": "- https://example.com/services-old → https://example.com/capabilities (301)\n- https://example.com/team → https://example.com/people-old (301)\n- https://example.com/people-old → https://example.com/people (301)\n- https://example.com/about → https://example.com/about-old (301)\n- https://example.com/about-old → https://example.com/about (301)\n- https://example.com/downloads → https://example.com/documents (301)\n- https://example.com/search?q=parts → https://example.com/search?q=parts (301)\n- https://example.com/retired → Retired (410)"
+}

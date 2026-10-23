@@ -1,0 +1,22 @@
+{
+  "name": "migration-redirect-checker",
+  "version": "0.1.0",
+  "description": "Check a website migration map for missing destinations, redirect loops and avoidable chains.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "check": "node --test && node scripts/build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Manchester-Web-Design/migration-redirect-checker.git"
+  },
+  "homepage": "https://manchesterwebdesign.uk/"
+}

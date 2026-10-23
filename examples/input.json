@@ -1,0 +1,65 @@
+{
+  "sourceOrigin": "https://example.com",
+  "targetOrigin": "https://example.com",
+  "legacyUrls": [
+    "/services-old",
+    "/team",
+    "/about",
+    "/downloads",
+    "/search?q=parts",
+    "/retired"
+  ],
+  "mapping": [
+    {
+      "old_url": "/services-old",
+      "new_url": "/capabilities",
+      "status": 301,
+      "reason": "Reviewed replacement"
+    },
+    {
+      "old_url": "/team",
+      "new_url": "/people-old",
+      "status": 301,
+      "reason": "Chain fixture"
+    },
+    {
+      "old_url": "/people-old",
+      "new_url": "/people",
+      "status": 301,
+      "reason": "Second hop"
+    },
+    {
+      "old_url": "/about",
+      "new_url": "/about-old",
+      "status": 301,
+      "reason": "Loop fixture"
+    },
+    {
+      "old_url": "/about-old",
+      "new_url": "/about",
+      "status": 301,
+      "reason": "Loop fixture"
+    },
+    {
+      "old_url": "/downloads",
+      "new_url": "/documents",
+      "status": 301,
+      "reason": "Supplied missing destination"
+    },
+    {
+      "old_url": "/search?q=parts",
+      "new_url": "/search?q=parts",
+      "status": 301,
+      "reason": "Self redirect fixture to review"
+    },
+    {
+      "old_url": "/retired",
+      "new_url": null,
+      "status": 410,
+      "reason": "Explicit retirement decision"
+    }
+  ],
+  "destinationStatuses": {
+    "https://example.com/documents": 404
+  }
+}

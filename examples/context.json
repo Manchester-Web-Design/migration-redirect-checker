@@ -1,0 +1,15 @@
+{
+  "sourceOrigin": "https://example.com",
+  "targetOrigin": "https://example.com",
+  "legacyUrls": [
+    "/services-old",
+    "/team",
+    "/about",
+    "/downloads",
+    "/search?q=parts",
+    "/retired"
+  ],
+  "destinationStatuses": {
+    "https://example.com/documents": 404
+  }
+}

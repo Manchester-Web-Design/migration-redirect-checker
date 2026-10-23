@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {analyse,render} from '../src/index.js';import {parseCSV,toCSV,escape} from '../src/util.js';
+const data=JSON.parse(fs.readFileSync(new URL('../examples/input.json',import.meta.url),'utf8'));
+test('the complete synthetic example produces a readable report',()=>{const r=analyse(data);assert.ok(r.title);assert.ok(r.summary);assert.match(render(r),/<h2>/);assert.ok(Array.isArray(r.issues));});
+test('quoted CSV and dangerous spreadsheet values remain safe',()=>{assert.equal(parseCSV('id,note\r\n1,"one, two"')[0].note,'one, two');assert.throws(()=>parseCSV('id,note\n1,"unclosed'),/Unclosed/);assert.match(toCSV([{name:'=HYPERLINK("x")'}]),/'=HYPERLINK/);});
+test('HTML escaping never emits an executable supplied tag',()=>{assert.equal(escape('<script>"&'), '&lt;script&gt;&quot;&amp;');});
+
+test('finds independent loop, chain and missing-destination conditions',()=>{const codes=analyse(data).issues.map(i=>i.code);for(const c of ['loop','chain','missing'])assert.ok(codes.includes(c));});
+test('a clean direct map passes while unmapped inventory remains visible',()=>{const clean={sourceOrigin:'https://example.com',targetOrigin:'https://example.com',legacyUrls:['/old'],mapping:[{old_url:'/old',new_url:'/new',status:301}]};assert.equal(analyse(clean).issues.length,0);clean.legacyUrls.push('/other');assert.ok(analyse(clean).issues.some(i=>i.code==='unmapped'));});
+test('conflicting duplicate mappings and unsafe schemes are rejected',()=>{const d=structuredClone(data);d.mapping.push(d.mapping[0]);assert.throws(()=>analyse(d),/Duplicate/);d.mapping=[{old_url:'/a',new_url:'javascript:alert(1)',status:301}];assert.throws(()=>analyse(d),/Unsafe/);});
+test('encoded paths, trailing slashes and queries are not silently merged',()=>{const d={sourceOrigin:'https://example.com',targetOrigin:'https://example.com',legacyUrls:['/a%2Fb','/a/b','/a/','/a?q=1'],mapping:[{old_url:'/a%2Fb',new_url:'/new',status:301}]};assert.equal(analyse(d).issues.filter(i=>i.code==='unmapped').length,3);});

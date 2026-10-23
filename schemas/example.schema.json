@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Migration Redirect Checker example structure",
+  "description": "Structural guide to the supplied example. Runtime validation enforces supported states, publication gates and cross-field rules.",
+  "type": "object",
+  "properties": {
+    "sourceOrigin": {
+      "type": "string"
+    },
+    "targetOrigin": {
+      "type": "string"
+    },
+    "legacyUrls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mapping": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "old_url": {
+            "type": "string"
+          },
+          "new_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "type": "number"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "old_url",
+          "new_url",
+          "status",
+          "reason"
+        ]
+      }
+    },
+    "destinationStatuses": {
+      "type": "object",
+      "properties": {
+        "https://example.com/documents": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "https://example.com/documents"
+      ]
+    }
+  },
+  "required": [
+    "sourceOrigin",
+    "targetOrigin",
+    "legacyUrls",
+    "mapping",
+    "destinationStatuses"
+  ]
+}
