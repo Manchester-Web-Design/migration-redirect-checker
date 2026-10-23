@@ -6,6 +6,10 @@ Reports run locally. The tool does not deploy redirects or promise to preserve r
 
 ![Complete example](docs/preview.png)
 
+## Live demo
+
+[Try Migration Redirect Checker](https://manchester-web-design.github.io/migration-redirect-checker/). The demo runs in your browser; entered data is not uploaded by the tool. GitHub provides the hosting and handles request logs.
+
 ## Start locally
 
 Requires Node.js 22 or later. No runtime dependencies or account required.
