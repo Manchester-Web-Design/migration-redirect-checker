@@ -1,6 +1,6 @@
 {
   "name": "migration-redirect-checker",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Decide what to keep, what needs to change and what your next website must do before you commission a rebuild.",
   "type": "module",
   "private": false,
