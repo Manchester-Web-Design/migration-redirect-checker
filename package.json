@@ -1,7 +1,7 @@
 {
   "name": "migration-redirect-checker",
-  "version": "0.1.0",
-  "description": "Check a website migration map for missing destinations, redirect loops and avoidable chains.",
+  "version": "0.2.0",
+  "description": "Decide what to keep, what needs to change and what your next website must do before you commission a rebuild.",
   "type": "module",
   "private": false,
   "license": "MIT",

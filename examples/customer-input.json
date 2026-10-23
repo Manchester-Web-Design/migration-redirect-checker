@@ -1,0 +1,13 @@
+{
+  "business": "Example Manchester Workshop",
+  "website": "example.co.uk",
+  "reason": "Difficult to use on mobile",
+  "keep": [
+    "Contact forms",
+    "Downloads"
+  ],
+  "pages": "Commercial services\nProject photographs\nExisting customer help",
+  "access": "supplier",
+  "email": "yes",
+  "success": "A simple mobile enquiry form and clearer project examples."
+}

@@ -1,0 +1,27 @@
+Example Manchester Workshop: website rebuild brief
+
+Use this as a starting brief, then confirm scope and price with your supplier.
+
+Why we are rebuilding
+- Difficult to use on mobile
+- A worthwhile result: A simple mobile enquiry form and clearer project examples.
+- Current website: https://example.co.uk/
+
+Keep working during the change
+- Contact forms
+- Downloads
+
+Information to preserve
+- Commercial services
+- Project photographs
+- Existing customer help
+
+Before work begins
+- Arrange owner access to the domain, website, hosting and relevant business accounts before starting.
+- Ask the supplier to preserve business email records and test email after any domain or hosting change.
+- Agree deliverables, ownership, ongoing costs and what is included in the handover.
+
+Launch checks
+- Have the supplier map important old page addresses to appropriate new pages.
+- Test enquiries, booking links, mobile navigation and downloads before and after launch.
+- Agree a backup and a route to resolve launch problems.

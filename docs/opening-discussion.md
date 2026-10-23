@@ -1,3 +1,11 @@
-Start with the example CSV files and compare the generated report with the expected output. If an error message is unclear, share a small anonymised mapping and describe what you expected. Do not post client URLs or private exports without permission. The project is maintained by [Manchester Web Design](https://manchesterwebdesign.uk/). Use Issues for reproducible bugs and this thread for report and workflow suggestions.
+# Try Website Rebuild Brief Planner and share what would make it more useful
 
-See the [README](../README.md) for setup, the complete example and release checks.
+This free browser tool is for manchester business owners. Decide what to keep, what needs to change and what your next website must do before you commission a rebuild.
+
+[Open the tool](https://manchester-web-design.github.io/migration-redirect-checker/). No coding knowledge, installation or account is needed. Start with the fictional example, or fill in the labelled fields with your own information. A rebuild brief and a handover checklist you can send to a designer.
+
+Feedback about unclear questions, missing practical options or mobile usability is welcome here. Please use fictional information in public examples and keep customer or confidential details out of this discussion.
+
+This creates a planning brief. It does not inspect your website or change any live settings.
+
+Maintained by [Manchester Web Design](https://manchesterwebdesign.uk/), operated by JW Digital Services Ltd. The original developer helpers are still available in the repository, but they are not needed to use the browser tool.

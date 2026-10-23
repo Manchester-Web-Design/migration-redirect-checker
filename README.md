@@ -1,68 +1,51 @@
-# Migration Redirect Checker
+# Website Rebuild Brief Planner
 
-Migration Redirect Checker helps you review the redirect map for a website rebuild. Give it your old URLs and planned destinations to find gaps, loops and chains before changing the live site.
+Decide what to keep, what needs to change and what your next website must do before you commission a rebuild.
 
-Reports run locally. The tool does not deploy redirects or promise to preserve rankings. Maintained by [Manchester Web Design](https://manchesterwebdesign.uk/), operated by JW Digital Services Ltd.
+**For Manchester business owners. No coding knowledge needed.**
 
-![Complete example](docs/preview.png)
+[Open the free tool](https://manchester-web-design.github.io/migration-redirect-checker/) · [See a fictional worked example](https://manchester-web-design.github.io/migration-redirect-checker/examples/customer-output.html)
 
-## Live demo
+![Desktop preview](docs/preview.png)
 
-[Try Migration Redirect Checker](https://manchester-web-design.github.io/migration-redirect-checker/). The demo runs in your browser; entered data is not uploaded by the tool. GitHub provides the hosting and handles request logs.
+## How to use it
 
-## Start locally
+1. Open the tool in your browser. No installation or account is needed.
+2. Use your own business details in the labelled fields, or choose **Try a fictional example**.
+3. Choose **Create my rebuild brief** and review the result.
+4. Adjust your answers, then copy the result, download a text file or choose **Print / Save PDF**.
 
-Requires Node.js 22 or later. No runtime dependencies or account required.
+A rebuild brief and a handover checklist you can send to a designer.
+
+## What to expect
+
+Tell us what is driving the change. You can leave the technical decisions to your website supplier.
+
+This creates a planning brief. It does not inspect your website or change any live settings.
+
+Your answers are processed in the browser tab. They are not uploaded, emailed or saved by the tool. Refreshing or closing the tab clears them. Save your result before leaving. GitHub provides hosting and handles normal request logs. Example details are fictional, not customer results.
+
+## Design and maintenance
+
+The interface uses the colours, typography and visual treatment of [Manchester Web Design](https://manchesterwebdesign.uk/). The tool is maintained by Manchester Web Design, operated by JW Digital Services Ltd. The commercial website is a separate project.
+
+Further reading: [Google guidance on website moves](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
+
+## For developers
+
+The customer tool uses native HTML controls and small browser modules, with no runtime framework. Its planning or calculation rules are in `src/customer.js`; presentation helpers are in `src/customer-ui.js`.
 
 ```sh
-npm ci
+npm ci --ignore-scripts
 npm test
 npm run build
 npm run serve
 ```
 
-Open http://127.0.0.1:4173/ for the complete local demonstration. Browser examples do not upload or persist entered data. The optional development server binds to loopback only.
+Open the local address printed by the server. `npm run build:pages` prepares the static GitHub Pages artifact. Tests cover the customer rules and output escaping.
 
-## Input and output
+The original v0.1 developer helpers remain in `src/index.js` for compatibility, with their original examples. They are not needed to use the customer tool. The existing repository name and Pages URL are retained so earlier links keep working.
 
-Supply sourceOrigin, targetOrigin, legacyUrls and mapping (old_url, new_url, status, reason). No URLs are fetched. Paths and query strings remain significant; fragments identify the same server resource.
+## Licence and feedback
 
-Use [examples/input.json](examples/input.json) as the complete input contract. Compare the generated [JSON result](examples/output.json), [Markdown report](examples/output.md) and [complete HTML](examples/output.html). The demo is in [demo/index.html](demo/index.html). It needs the local server for JavaScript modules. HTML reports can be opened as standalone files.
-
-```sh
-node cli.mjs examples/input.json --format json
-node cli.mjs examples/input.json --format html --output report.html
-node cli.mjs examples/input.json --format md --output report.md
-```
-
-Flat collections can also be imported with `--csv data.csv --context context.json --key items` (replace `items` with the documented collection). Nested structures use JSON. See `node cli.mjs --help`.
-
-## Worked example
-
-Use a fictional supplier site with six old URLs. Include `/services-old` mapping directly to `/capabilities`, a two-hop `/team` chain, an `/about` loop, a missing `/downloads` destination, a query-preservation example and a legitimately retired page recorded for review. The expected report identifies each condition separately rather than inventing a single SEO score.
-
-All supplied example records are synthetic. No clients, outcomes, current professional advice or real service availability are represented by them. Keep real records private and review output before sharing it.
-
-## Checks
-
-- A clean mapping produces no structural errors; an unmapped URL remains visible as a decision to make.
-- Multi-hop chains and loops are found without infinite traversal. Duplicate rows with different targets fail clearly.
-- Protocol, host, case and query policy are tested; encoded separators are not silently normalised into another route.
-- The HTML report escapes supplied values. Offline mode performs no network requests, and any verifier rejects private-network targets and unapproved origins.
-- A new user can run the supplied example using the documented command and get the expected report.
-
-The automated results and browser checks performed for this release are recorded in [verification.md](docs/verification.md). Manual screen-reader testing has not been performed. A passing automated check is not accessibility certification.
-
-## Contribute and maintain
-
-Use [Issues](https://github.com/Manchester-Web-Design/migration-redirect-checker/issues) for a reproducible bug and [Discussions](https://github.com/Manchester-Web-Design/migration-redirect-checker/discussions) for questions and improvements. Follow [CONTRIBUTING.md](CONTRIBUTING.md); report vulnerabilities privately using [SECURITY.md](SECURITY.md). See [CHANGELOG.md](CHANGELOG.md) for releases. Maintenance is best effort.
-
-Code, original illustrations and synthetic fixtures are MIT licensed. There is no required website backlink when reusing the resource. Commercial brand assets and third-party material are not included.
-
-## CSV example
-
-```sh
-node cli.mjs --csv examples/input.csv --context examples/context.json --key mapping --format html --output csv-report.html
-```
-
-The context holds the root settings; the CSV holds the flat collection. Explicit booleans use `true` or `false`. Nested data uses JSON.
+MIT for tool code. Bundled typefaces retain their original licence notices in `demo/assets/font-licences`. [Ideas and feedback](https://github.com/Manchester-Web-Design/migration-redirect-checker/discussions/1).

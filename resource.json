@@ -3,9 +3,10 @@
   "org": "Manchester-Web-Design",
   "brand": "Manchester Web Design",
   "slug": "migration-redirect-checker",
-  "title": "Migration Redirect Checker",
+  "title": "Website Rebuild Brief Planner",
   "profile": "Website rebuilds, migrations and tools for reviewing redirect maps. Operated by JW Digital Services Ltd.",
-  "accent": "#283e80",
-  "tint": "#eaeefa",
-  "summary": "Check a website migration map for missing destinations, redirect loops and avoidable chains."
+  "accent": "#fc563d",
+  "tint": "#f0dfd0",
+  "summary": "Decide what to keep, what needs to change and what your next website must do before you commission a rebuild.",
+  "brandMark": "<svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 43V19l12-7v31m0-28 14-9v37m0-21 12-7v28M2 43h44\"/></svg>"
 }
